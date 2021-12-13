@@ -2,8 +2,7 @@
 //  ToDoItemTableViewController.swift
 //  To Do List
 //
-//  Created by Denis Bystruev on 08/08/2019.
-//  Copyright © 2019 Denis Bystruev. All rights reserved.
+//  Created by Vladimir Shevtsov on 05.12.2021.
 //
 
 import UIKit
@@ -16,11 +15,11 @@ class ToDoItemTableViewController: UITableViewController {
 // MARK: - UITableViewDataSource
 extension ToDoItemTableViewController /*: UITableViewDataSource */ {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let value = todo.values[indexPath.section]
+
         if let cell = tableView.cellForRow(at: indexPath) {
             return cell.isHidden ? 0 : UITableView.automaticDimension
         } else {
-            return /* value is Date && indexPath.row == 1 ? 0 : */ UITableView.automaticDimension
+            return UITableView.automaticDimension
         }
     }
     
@@ -36,7 +35,7 @@ extension ToDoItemTableViewController /*: UITableViewDataSource */ {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let value = todo.values[section]
-        let cell = getCellFor(indexPath: indexPath, with: value)
+        let cell  = getCellFor(indexPath: indexPath, with: value)
         return cell
     }
     
@@ -57,16 +56,16 @@ extension ToDoItemTableViewController /*: UITableViewDelegate */ {
             
         } else if value is UIImage {
             
-            let alert = UIAlertController(title: "Choose Source", message: nil, preferredStyle: .actionSheet)
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            let alert  = UIAlertController(title: "Choose Source", message: nil, preferredStyle: .actionSheet)
+            let cancel = UIAlertAction(title:     "Cancel",        style: .cancel)
             alert.addAction(cancel)
             
-            let imagePicker = SectionImagePickerController()
+            let imagePicker      = SectionImagePickerController()
             imagePicker.delegate = self
-            imagePicker.section = indexPath.section
+            imagePicker.section  = indexPath.section
             
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
+                let cameraAction           = UIAlertAction(title: "Camera", style: .default) { action in
                     imagePicker.sourceType = .camera
                     self.present(imagePicker, animated: true)
                 }
@@ -74,7 +73,7 @@ extension ToDoItemTableViewController /*: UITableViewDelegate */ {
             }
             
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { action in
+                let photoLibraryAction     = UIAlertAction(title: "Photo Library", style: .default) { action in
                     imagePicker.sourceType = .photoLibrary
                     self.present(imagePicker, animated: true)
                 }
@@ -95,7 +94,7 @@ extension ToDoItemTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
             cell.textField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
             cell.textField.section = indexPath.section
-            cell.textField.text = stringValue
+            cell.textField.text    = stringValue
             return cell
             
         } else if let dateValue = value as? Date {
@@ -110,8 +109,8 @@ extension ToDoItemTableViewController {
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell") as! DatePickerCell
                 cell.datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-                cell.datePicker.date = dateValue
-                cell.datePicker.section = indexPath.section
+                cell.datePicker.date        = dateValue
+                cell.datePicker.section     = indexPath.section
                 cell.datePicker.minimumDate = Date()
                 return cell
                 
@@ -129,7 +128,7 @@ extension ToDoItemTableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell") as! SwitchCell
             cell.switch.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
-            cell.switch.isOn = boolValue
+            cell.switch.isOn    = boolValue
             cell.switch.section = indexPath.section
             return cell
             
@@ -138,7 +137,7 @@ extension ToDoItemTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
             cell.textField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
             cell.textField.section = indexPath.section
-            cell.textField.text = ""
+            cell.textField.text    = ""
             return cell
             
         }
@@ -149,36 +148,37 @@ extension ToDoItemTableViewController {
 extension ToDoItemTableViewController {
     @objc func datePickerValueChanged(_ sender: SectionDatePicker) {
         let section = sender.section!
-        let key = todo.keys[section]
-        let date = sender.date
+        let key     = todo.keys[section]
+        let date    = sender.date
         todo.setValue(date, forKey: key)
         let labelIndexPath = IndexPath(row: 0, section: section)
         tableView.reloadRows(at: [labelIndexPath], with: .automatic)
     }
     
     @objc func switchValueChanged(_ sender: SectionSwitch) {
-        let key = todo.keys[sender.section!]
+        let key   = todo.keys[sender.section!]
         let value = sender.isOn
         todo.setValue(value, forKey: key)
     }
     
     
     @objc func textFieldValueChanged(_ sender: SectionTextField) {
-        let key = todo.keys[sender.section!]
+        let key  = todo.keys[sender.section!]
         let text = sender.text ?? ""
         todo.setValue(text, forKey: key)
     }
 }
 
 extension ToDoItemTableViewController: UIImagePickerControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true)
-        guard let image = info[.originalImage] as? UIImage else { return }
+        guard let image         = info[.originalImage] as? UIImage else { return }
         guard let sectionPicker = picker as? SectionImagePickerController else { return }
-        guard let section = sectionPicker.section else { return }
-        let key = todo.keys[section]
+        guard let section       = sectionPicker.section else { return }
+        let key                 = todo.keys[section]
         todo.setValue(image, forKey: key)
-        let indexPath = IndexPath(row: 0, section: section)
+        let indexPath           = IndexPath(row: 0, section: section)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

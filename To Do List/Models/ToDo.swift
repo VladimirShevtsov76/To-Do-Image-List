@@ -2,31 +2,30 @@
 //  ToDo.swift
 //  To Do List
 //
-//  Created by Denis Bystruev on 08/08/2019.
-//  Copyright © 2019 Denis Bystruev. All rights reserved.
+//  Created by Vladimir Shevtsov on 05.12.2021.
 //
 
 import UIKit
 
 @objcMembers class ToDo: NSObject {
-    var title: String
+    var title:      String
     var isComplete: Bool
-    var dueDate: Date
-    var notes: String?
-    var image: UIImage?
+    var dueDate:    Date
+    var notes:      String?
+    var image:      UIImage?
     
     init(
-        title: String = "",
-        isComplete: Bool = false,
-        dueDate: Date = Date(),
-        notes: String? = nil,
-        image: UIImage? = nil
+        title:      String   = "",
+        isComplete: Bool     = false,
+        dueDate:    Date     = Date(),
+        notes:      String?  = nil,
+        image:      UIImage? = nil
     ) {
-        self.title = title
+        self.title      = title
         self.isComplete = isComplete
-        self.dueDate = dueDate
-        self.notes = notes
-        self.image = image
+        self.dueDate    = dueDate
+        self.notes      = notes
+        self.image      = image
     }
     
     var capitilizedKeys: [String] {
@@ -43,11 +42,11 @@ import UIKit
     
     override func copy() -> Any {
         let newToDo = ToDo(
-            title: title,
+            title:      title,
             isComplete: isComplete,
-            dueDate: dueDate,
-            notes: notes,
-            image: image?.copy() as? UIImage
+            dueDate:    dueDate,
+            notes:      notes,
+            image:      image?.copy() as? UIImage
         )
         return newToDo
     }

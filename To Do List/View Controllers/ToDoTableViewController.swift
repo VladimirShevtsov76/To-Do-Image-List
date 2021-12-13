@@ -2,8 +2,7 @@
 //  ToDoTableViewController.swift
 //  To Do List
 //
-//  Created by Denis Bystruev on 08/08/2019.
-//  Copyright © 2019 Denis Bystruev. All rights reserved.
+//  Created by Vladimir Shevtsov on 05.12.2021.
 //
 
 import UIKit
@@ -15,9 +14,9 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         todos = [
-            ToDo(title: "Купить хлеб", image: UIImage(named: "bread")),
+            ToDo(title: "Купить хлеб",              image: UIImage(named: "bread")),
             ToDo(title: "Записать ребёнка в школу", image: UIImage(named: "school")),
-            ToDo(title: "Подготовить питч", image: UIImage(named: "pitch")),
+            ToDo(title: "Подготовить питч",         image: UIImage(named: "pitch")),
         ]
     }
     
@@ -43,39 +42,39 @@ class ToDoTableViewController: UITableViewController {
         }
         
         for index in 0 ..< todo.keys.count {
-            let key = todo.capitilizedKeys[index]
+            let key   = todo.capitilizedKeys[index]
             let value = todo.values[index]
             
             if let stringValue = value as? String {
                 
-                let label = UILabel()
+                let label  = UILabel()
                 label.text = "\(key): \(stringValue)"
                 stackView.addArrangedSubview(label)
                 
             } else if let dateValue = value as? Date {
                 
-                let label = UILabel()
+                let label  = UILabel()
                 label.text = "\(key): \(dateValue.formattedDate)"
                 stackView.addArrangedSubview(label)
                 
             } else if let boolValue = value as? Bool {
                 
-                let label = UILabel()
+                let label  = UILabel()
                 label.text = "\(key): \(boolValue ? "✅" : "⚪️")"
                 stackView.addArrangedSubview(label)
                 
             } else if let imageValue = value as? UIImage {
                 
-                let imageView = UIImageView(image: imageValue)
+                let imageView         = UIImageView(image: imageValue)
                 imageView.contentMode = .scaleAspectFit
-                let heightConstraint = NSLayoutConstraint(
+                let heightConstraint  = NSLayoutConstraint(
                     item: imageView,
                     attribute: .height,
                     relatedBy: .equal,
-                    toItem: nil,
+                    toItem:     nil,
                     attribute: .height,
                     multiplier: 1,
-                    constant: 200
+                    constant:   200
                 )
                 imageView.addConstraint(heightConstraint)
                 stackView.addArrangedSubview(imageView)
@@ -87,14 +86,14 @@ class ToDoTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "ToDoItemSegue" else { return }
         guard let selectedIndex = tableView.indexPathForSelectedRow else { return }
-        let destination = segue.destination as! ToDoItemTableViewController
-        destination.todo = todos[selectedIndex.row].copy() as! ToDo
+        let destination         = segue.destination as! ToDoItemTableViewController
+        destination.todo        = todos[selectedIndex.row].copy() as! ToDo
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         guard segue.identifier == "SaveSegue" else { return }
-        guard let selectedIndex = tableView.indexPathForSelectedRow else { return }
-        let source = segue.source as! ToDoItemTableViewController
+        guard let selectedIndex  = tableView.indexPathForSelectedRow else { return }
+        let source               = segue.source as! ToDoItemTableViewController
         todos[selectedIndex.row] = source.todo
         tableView.reloadRows(at: [selectedIndex], with: .automatic)
     }

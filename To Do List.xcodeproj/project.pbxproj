@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6953664724B431EB005BDBA7 /* Screenshot02.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6953664524B431EB005BDBA7 /* Screenshot02.jpeg */; };
-		6953664824B431EB005BDBA7 /* Screenshot01.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6953664624B431EB005BDBA7 /* Screenshot01.jpeg */; };
 		6972F48222FC8EF1006656BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972F48122FC8EF1006656BB /* AppDelegate.swift */; };
 		6972F48722FC8EF1006656BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6972F48522FC8EF1006656BB /* Main.storyboard */; };
 		6972F48922FC8EFB006656BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6972F48822FC8EFB006656BB /* Assets.xcassets */; };
@@ -28,11 +26,11 @@
 		69A776532301EAC500E3C16F /* SectionImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A776522301EAC500E3C16F /* SectionImagePickerController.swift */; };
 		69A776552301EB0500E3C16F /* SectionSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A776542301EB0500E3C16F /* SectionSwitch.swift */; };
 		69A776572301EB3600E3C16F /* SectionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A776562301EB3500E3C16F /* SectionTextField.swift */; };
+		B1B212E82767B004006461F7 /* Screenshot01.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B212E62767B004006461F7 /* Screenshot01.png */; };
+		B1B212E92767B004006461F7 /* Screenshot02.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B212E72767B004006461F7 /* Screenshot02.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6953664524B431EB005BDBA7 /* Screenshot02.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Screenshot02.jpeg; sourceTree = "<group>"; };
-		6953664624B431EB005BDBA7 /* Screenshot01.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Screenshot01.jpeg; sourceTree = "<group>"; };
 		6972F47E22FC8EF1006656BB /* To Do List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To Do List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6972F48122FC8EF1006656BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6972F48622FC8EF1006656BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		69A776522301EAC500E3C16F /* SectionImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionImagePickerController.swift; sourceTree = "<group>"; };
 		69A776542301EB0500E3C16F /* SectionSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSwitch.swift; sourceTree = "<group>"; };
 		69A776562301EB3500E3C16F /* SectionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTextField.swift; sourceTree = "<group>"; };
+		B1B212E62767B004006461F7 /* Screenshot01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot01.png; sourceTree = "<group>"; };
+		B1B212E72767B004006461F7 /* Screenshot02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot02.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +70,8 @@
 		6953664424B431EB005BDBA7 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				6953664524B431EB005BDBA7 /* Screenshot02.jpeg */,
-				6953664624B431EB005BDBA7 /* Screenshot01.jpeg */,
+				B1B212E62767B004006461F7 /* Screenshot01.png */,
+				B1B212E72767B004006461F7 /* Screenshot02.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Denis Bystruev";
 				TargetAttributes = {
 					6972F47D22FC8EF1006656BB = {
@@ -235,9 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6972F48C22FC8EFB006656BB /* LaunchScreen.storyboard in Resources */,
-				6953664724B431EB005BDBA7 /* Screenshot02.jpeg in Resources */,
 				6972F48922FC8EFB006656BB /* Assets.xcassets in Resources */,
-				6953664824B431EB005BDBA7 /* Screenshot01.jpeg in Resources */,
+				B1B212E92767B004006461F7 /* Screenshot02.png in Resources */,
+				B1B212E82767B004006461F7 /* Screenshot01.png in Resources */,
 				6972F48722FC8EF1006656BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +316,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -377,6 +378,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -412,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2020.07.07;
-				DEVELOPMENT_TEAM = 8J39KF9DMS;
+				DEVELOPMENT_TEAM = 9WKHJD3DKV;
 				INFOPLIST_FILE = "$(SRCROOT)/To Do List/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,7 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2020.07.07;
-				DEVELOPMENT_TEAM = 8J39KF9DMS;
+				DEVELOPMENT_TEAM = 9WKHJD3DKV;
 				INFOPLIST_FILE = "$(SRCROOT)/To Do List/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

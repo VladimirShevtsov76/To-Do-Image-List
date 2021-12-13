@@ -1,10 +1,10 @@
 # To Do Image List
 
-Modified To Do List from Apple [App Development with Swift](https://apd.timepad.ru/event/644155) curriculum
+To Do Image List
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/dbystruev/To-Do-Image-List/blob/master/To%20Do%20List/Screenshots/Screenshot01.jpeg?raw=true)
+![Screenshot 1](https://github.com/VladimirShevtsov76/To-Do-Image-List/blob/master/To%20Do%20List/Screenshots/Screenshot01.png?raw=true)
 
-![Screenshot 2](https://github.com/dbystruev/To-Do-Image-List/blob/master/To%20Do%20List/Screenshots/Screenshot02.jpeg?raw=true)
+![Screenshot 2](https://github.com/VladimirShevtsov76/To-Do-Image-List/blob/master/To%20Do%20List/Screenshots/Screenshot02.png?raw=true)
 
